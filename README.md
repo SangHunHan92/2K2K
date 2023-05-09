@@ -10,16 +10,15 @@ Young-Jae Park, and
 <br>Accepted to 
 <a href="https://cvpr2023.thecvf.com/">CVPR 2023</a>
 
-[![report](https://img.shields.io/badge/arxiv-report-red)](https://arxiv.org/abs/2303.15108)
+<a href="https://arxiv.org/abs/2303.15108">Paper</a> | 
+<a href="https://sanghunhan92.github.io/conference/2K2K/">Project Page</a>
 
-<!-- ![Teaser Image](https://shunsukesaito.github.io/PIFuHD/resources/images/pifuhd.gif) -->
+<!-- [![report](https://img.shields.io/badge/arxiv-report-red)](https://arxiv.org/abs/2303.15108) -->
 
-![Teaser Image](https://github.com/SangHunHan92/SangHunHan92.github.io/blob/main/imgs/hanni_zoom_resize2.gif?raw=true)
+<br/>
 
-<!-- <div align='center'>
-  <img src="img/npsn-teaser-animated.png" width=45%>
-  <img src="img/npsn-teaser-sampling.png" width=45%>
-</div> -->
+![Teaser Image](https://github.com/SangHunHan92/SangHunHan92.github.io/blob/main/imgs/2K2K/hanni_zoom_resize2.gif?raw=true)
+
 
 ## 2K2K Dataset
 * Consisting of 2,050 3D human models from 80 DSLR cameras.
