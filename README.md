@@ -16,10 +16,12 @@ Young-Jae Park, and
 <!-- [![report](https://img.shields.io/badge/arxiv-report-red)](https://arxiv.org/abs/2303.15108) -->
 
 <br/>
+<p align="center">
+  <img src="https://github.com/SangHunHan92/SangHunHan92.github.io/blob/main/imgs/2K2K/hanni_zoom_resize2.gif?raw=true" alt="Sublime's custom image"/>
+</p>
 
-![Teaser Image](https://github.com/SangHunHan92/SangHunHan92.github.io/blob/main/imgs/2K2K/hanni_zoom_resize2.gif?raw=true)
-
+<!-- ![Teaser Image](https://github.com/SangHunHan92/SangHunHan92.github.io/blob/main/imgs/2K2K/hanni_zoom_resize2.gif?raw=true) -->
 
 ## 2K2K Dataset
 * Consisting of 2,050 3D human models from 80 DSLR cameras.
-* Dataset will be released on June 9th.
+* Due to watermarking, the dataset will be released on June 16th.
