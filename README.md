@@ -24,4 +24,4 @@ Young-Jae Park, and
 
 ## 2K2K Dataset
 * Consisting of 2,050 3D human models from 80 DSLR cameras.
-* Due to watermarking, the dataset will be released on June 16th.
+* Due to watermarking for the privacy issue, the dataset will be released on June 16th. Sorry for the late release.
