@@ -51,11 +51,11 @@ docker build -t 2k2k:1.0 .
 
 2. Make Docker Container From Image (example below)
 ```bash
-docker run -e NVIDIA_VISIBLE_DEVICES=all -i -t -d --runtime=nvidia --shm-size=512gb --name 2k2k --mount type=bind,source={path/to/2k2k_code},target=/workspace/code --mount type=bind,source={path/to/dataset},target=/workspace/dataset 2k2k:1.0 /bin/bash
+docker run -e NVIDIA_VISIBLE_DEVICES=all -i -t -d --runtime=nvidia --shm-size=512gb --name 2k2k --mount type=bind,source={path/to/2k2k_code},target=/workspace/code 2k2k:1.0 /bin/bash
 ```
 
 ## Dataset Preparing
-* We used RenderPeople, THuman2.0, and 2K2K datasets for training. For training, the structure of the dataset folder will be formed as follows:
+* We used RenderPeople, THuman2.0, and 2K2K datasets for training. A structure of the dataset folder will be formed as follows:
 ```bash
 {data_folder}
 ├ IndoorCVPR09
@@ -80,45 +80,45 @@ docker run -e NVIDIA_VISIBLE_DEVICES=all -i -t -d --runtime=nvidia --shm-size=51
 ```
 
 ### Background Images
-* You can download Background images from <a href="https://web.mit.edu/torralba/www/indoor.html">Recognizing Indoor Scenes</a>. Unzip this files under `{data_folder}/IndoorCVPR09/`.
+* You can download Background images from <a href="https://web.mit.edu/torralba/www/indoor.html">Recognizing Indoor Scenes</a>. Unzip this files under `data/IndoorCVPR09/`.
 
 
 ### Render Dataset (Image, Depth)
 * For RenderPeople dataset, enter the command below to render.
 ```bash
-python render/render.py --data_path {data_folder} --data_name RP
+python render/render.py --data_path ./data --data_name RP
 ```
 * For THuman2.0 dataset, you should use the SMPL-X model to render the front of human scans. Please download <a href="https://smpl-x.is.tue.mpg.de/download.php">SMPL-X</a> models anywhere.
 
 * After download SMPL-X models, you can render images.
 ```bash
-python render/render.py --data_path {data_folder} --data_name THuman2 --smpl_model_path {smpl_model_path}
+python render/render.py --data_path ./data --data_name THuman2 --smpl_model_path {smpl_model_path}
 ```
 ### Render Dataset (Keypoint)
-* Unzip 3D keypoints of RenderPeople and THuman2.0 dataset `Joint3D.zip` under `{data_folder}/Joint3D`
+* Unzip 3D keypoints of RenderPeople and THuman2.0 dataset `Joint3D.zip` under `data/Joint3D`
 ```bash
-unzip {data_folder}/Joint3D.zip -d {data_folder}/Joint3D/
+unzip data/Joint3D.zip -d data/Joint3D/
 ```
 <!-- * Download 3D keypoints of RenderPeople and THuman2.0 dataset to `{data_folder}/Joint3D` from `!!!!!!` -->
 
 * For RenderPeople training dataset, enter the command below to get 2D keypoints.
 ```bash
-python render/render_keypoint.py --data_path {data_folder} --data_name RP
+python render/render_keypoint.py --data_path ./data --data_name RP
 ```
 * For THuman2.0 training dataset, enter the command below to get 2D keypoints.
 ```bash
-python render/render_keypoint.py --data_path {data_folder} --data_name THuman2
+python render/render_keypoint.py --data_path ./data --data_name THuman2
 ```
 <!-- **Baseline models** -->
 
 ## Model Training
 * Our model is divided into phase 1 and phase 2, learning high-resolution normal and depth respectively. To train phase 1, type follows,
 ```bash
-python train.py --data_path {data_folder} --phase 1 --batch_size 1
+python train.py --data_path ./data --phase 1 --batch_size 1
 ```
 * After training phase 1, use pre-trained checkpoints to train phase 2, 
 ```bash
-python train.py --data_path {data_folder} --phase 2 --batch_size 1 --load_ckpt {checkpoint_file_name}
+python train.py --data_path ./data --phase 2 --batch_size 1 --load_ckpt {checkpoint_file_name}
 ```
 * If you want to train model with Distributed Data Parallel(DDP), use following code. In this case, you should type options in argparse.
 ```bash
@@ -139,7 +139,7 @@ bin\OpenPoseDemo.exe --image_dir {test_folder} --write_json {test_folder} --hand
 
 * Download the checkpoint file for quick results.
 ```bash
-mkdir checkpoints && cd checkpoints && wget https://github.com/SangHunHan92/2K2K/releases/download/Checkpoint/ckpt_bg_mask.pth.tar
+mkdir checkpoints && cd checkpoints && wget https://github.com/SangHunHan92/2K2K/releases/download/Checkpoint/ckpt_bg_mask.pth.tar && cd ..
 ```
 
 * You can inference our model easily. This results depth, normal, and depth pointclouds `.ply`.
