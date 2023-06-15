@@ -57,7 +57,7 @@ docker run -e NVIDIA_VISIBLE_DEVICES=all -i -t -d --runtime=nvidia --shm-size=51
 ## Dataset Preparing
 * We used RenderPeople, THuman2.0, and 2K2K datasets for training. A structure of the dataset folder will be formed as follows:
 ```bash
-{data_folder}
+data
 ├ IndoorCVPR09
 │  ├ airport_inside
 │  └ ⋮
