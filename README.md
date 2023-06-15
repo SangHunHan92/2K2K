@@ -132,14 +132,21 @@ python -m torch.distributed.run \
 
 ## Model Test
 * For test our model, we use <a href="https://github.com/CMU-Perceptual-Computing-Lab/openpose">openpose</a> to extract 2d keypoints. We used <a href="https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/doc/01_demo.md">Windows Portable Demo</a> for get `json` file.
-* Put the image in a folder and run openpose like the code below will create a `json` keypoint file. Please refer `./test` folder.
+* Put the image in a folder and run openpose like the code below will create a `json` keypoint file. Please refer `./test` folder. 
 ```bash
 bin\OpenPoseDemo.exe --image_dir {test_folder} --write_json {test_folder} --hand --write_images {test_folder}\test --write_images_format jpg
 ```
+
+* Download the checkpoint file for quick results.
+```bash
+cd checkpoints && wget https://github.com/SangHunHan92/2K2K/releases/download/Checkpoint/ckpt_bg_mask.pth.tar
+```
+
 * You can inference our model easily. This results depth, normal, and depth pointclouds `(.ply)`.
 ```bash
 python test_02_model.py --load_ckpt {checkpoint_file_name} --save_path {result_save_folder}
 ```
+
 * To run poisson surface reconstruction,  
 ```bash
 python test_03_model.py --save_path {result_save_folder}
