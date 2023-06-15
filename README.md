@@ -84,7 +84,7 @@ data
 
 
 ### Render Dataset (Image, Depth)
-* For RenderPeople dataset, enter the command below to render.
+* For RenderPeople dataset, enter the command below to render. It takes about 2-3 days to render a 2048×2048 resolution image.
 ```bash
 python render/render.py --data_path ./data --data_name RP
 ```
@@ -147,7 +147,7 @@ cd checkpoints && wget https://github.com/SangHunHan92/2K2K/releases/download/Ch
 python test_02_model.py --load_ckpt {checkpoint_file_name} --save_path {result_save_folder}
 ```
 
-* To run poisson surface reconstruction,  
+* To run the Poisson surface reconstruction, run the code below. Depending on your CPU power, it will take between 1 and 10 minutes per object.
 ```bash
 python test_03_model.py --save_path {result_save_folder}
 ```
