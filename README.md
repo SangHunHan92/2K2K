@@ -136,7 +136,7 @@ python -m torch.distributed.run \
 ```bash
 bin\OpenPoseDemo.exe --image_dir {test_folder} --write_json {test_folder} --hand --write_images {test_folder}\test --write_images_format jpg
 ```
-* You can inference our models easily. This results depth, normal, and pointclouds.
+* You can inference our model easily. This results depth, normal, and depth pointclouds `(.ply)`.
 ```bash
 python test_02_model.py --load_ckpt {checkpoint_file_name} --save_path {result_save_folder}
 ```
