@@ -139,10 +139,10 @@ bin\OpenPoseDemo.exe --image_dir {test_folder} --write_json {test_folder} --hand
 
 * Download the checkpoint file for quick results.
 ```bash
-cd checkpoints && wget https://github.com/SangHunHan92/2K2K/releases/download/Checkpoint/ckpt_bg_mask.pth.tar
+mkdir checkpoints && cd checkpoints && wget https://github.com/SangHunHan92/2K2K/releases/download/Checkpoint/ckpt_bg_mask.pth.tar
 ```
 
-* You can inference our model easily. This results depth, normal, and depth pointclouds `(.ply)`.
+* You can inference our model easily. This results depth, normal, and depth pointclouds `.ply`.
 ```bash
 python test_02_model.py --load_ckpt {checkpoint_file_name} --save_path {result_save_folder}
 ```
