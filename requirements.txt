@@ -1,0 +1,13 @@
+opencv-python==4.5.5.64
+matplotlib
+scipy
+pytorch-msssim
+trimesh
+scikit-image
+scikit-learn
+munch
+tensorboard
+pymeshlab==2022.2
+smplx
+pyrender
+tqdm
