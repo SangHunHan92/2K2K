@@ -85,7 +85,7 @@ data
 
 ### Render Dataset (Image, Depth)
 * To render the human datasets into images and depth maps, download the mesh files to `data/obj` first. See the folder structure above for download locations.
-* For RenderPeople dataset, enter the command below to render. This will create folders `PERS` and `ORTH` (if you want). It takes about 2-3 days to render a 2048×2048 resolution images.
+* For RenderPeople dataset, enter the command below to render. This will create folders `PERS` and `ORTH` (Optional). It takes about 2-3 days to render a 2048×2048 resolution images.
 ```bash
 python render/render.py --data_path ./data --data_name RP
 ```
