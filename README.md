@@ -89,7 +89,7 @@ data
 ```bash
 python render/render.py --data_path ./data --data_name RP
 ```
-* For THuman2.0 dataset, you should use the SMPL-X model to render the front of human scans. Please download <a href="https://smpl-x.is.tue.mpg.de/download.php">SMPL-X</a> models anywhere.
+* For THuman2.0 dataset, you should use the SMPL-X model to render the front of human scans. Please download <a href="https://smpl-x.is.tue.mpg.de/download.php">SMPL-X</a> models anywhere. The `smplx` folder should exist under the `{smpl_model_path}`.
 
 * After download SMPL-X models, you can render images.
 ```bash
