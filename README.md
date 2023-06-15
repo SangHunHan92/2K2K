@@ -84,7 +84,7 @@ data
 
 
 ### Render Dataset (Image, Depth)
-* To render the human datasets into images and depth maps, download the mesh files to `data/obj`.
+* To render the human datasets into images and depth maps, download the mesh files to `data/obj` first. See the folder structure above for download locations.
 * For RenderPeople dataset, enter the command below to render. This will create folders `PERS` and `ORTH` (if you want). It takes about 2-3 days to render a 2048×2048 resolution images.
 ```bash
 python render/render.py --data_path ./data --data_name RP
@@ -96,7 +96,7 @@ python render/render.py --data_path ./data --data_name RP
 python render/render.py --data_path ./data --data_name THuman2 --smpl_model_path {smpl_model_path}
 ```
 ### Render Dataset (Keypoint)
-* Unzip 3D keypoints of RenderPeople and THuman2.0 dataset `Joint3D.zip` under `data/Joint3D`
+* Unzip 3D keypoints of RenderPeople and THuman2.0 dataset `Joint3D.zip` under `data/Joint3D`.
 ```bash
 unzip data/Joint3D.zip -d data/Joint3D/
 ```
