@@ -23,7 +23,7 @@ from rembg.session_factory import new_session
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--workers', type=int, default=1, help='workers')
-parser.add_argument('--load_ckpt',  type=str, default='ckpt_alldataset_bg_blurmask.pth.tar', help='somewhere in your PC') 
+parser.add_argument('--load_ckpt',  type=str, default='ckpt_bg_mask.pth.tar', help='somewhere in your PC') 
 parser.add_argument('--data_path', type=str, default='./test/', help='path to dataset')
 parser.add_argument('--checkpoints_load_path', type=str, default='./checkpoints/', help='path to save checkpoints')
 parser.add_argument('--save_path', type=str, default='./result', help='path to save folder')
