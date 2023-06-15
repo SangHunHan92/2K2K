@@ -121,7 +121,7 @@ python train.py --data_path ./data --phase 1 --batch_size 1
 ```bash
 python train.py --data_path ./data --phase 2 --batch_size 1 --load_ckpt {checkpoint_file_name}
 ```
-* If you want to train model with Distributed Data Parallel(DDP), use following code. In this case, you can change options of `argparse` in `train.py` manually.
+* If you want to train model with Distributed Data Parallel(DDP), use following code. You can also change options of `argparse` in `train.py` manually.
 ```bash
 CUDA_VISIBLE_DEVICES=0,1 \
 python -m torch.distributed.run \
