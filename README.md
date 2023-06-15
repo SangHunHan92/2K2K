@@ -138,12 +138,12 @@ python -m torch.distributed.run \
 bin\OpenPoseDemo.exe --image_dir {test_folder} --write_json {test_folder} --hand --write_images {test_folder}\test --write_images_format jpg
 ```
 
-* Download the checkpoint file for quick results.
+* Download the checkpoint file for quick results. This is trained 
 ```bash
 cd checkpoints && wget https://github.com/SangHunHan92/2K2K/releases/download/Checkpoint/ckpt_bg_mask.pth.tar && cd ..
 ```
 
-* You can inference our model easily. This results depth map, normal map, and depth pointclouds `(.ply)`.
+* You can inference our model easily. This results depth map, normal map, and depth pointclouds `ply`.
 ```bash
 python test_02_model.py --load_ckpt {checkpoint_file_name} --save_path {result_save_folder}
 ```
