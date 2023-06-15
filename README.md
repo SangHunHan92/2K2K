@@ -148,7 +148,7 @@ cd checkpoints && wget https://github.com/SangHunHan92/2K2K/releases/download/Ch
 python test_02_model.py --load_ckpt {checkpoint_file_name} --save_path {result_save_folder}
 ```
 
-* To run the Poisson surface reconstruction, run the code below. Depending on your CPU power, it will take between 1 and 10 minutes per object.
+* To run the Poisson surface reconstruction, run the code below. Depending on your CPU performance, it will take between 1 and 10 minutes per object.
 ```bash
 python test_03_model.py --save_path {result_save_folder}
 ```
