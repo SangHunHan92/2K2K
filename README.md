@@ -84,7 +84,7 @@ data
 
 
 ### Render Dataset (Image, Depth)
-* For RenderPeople dataset, enter the command below to render. It takes about 2-3 days to render a 2048×2048 resolution image.
+* For RenderPeople dataset, enter the command below to render. It takes about 2-3 days to render a 2048×2048 resolution images.
 ```bash
 python render/render.py --data_path ./data --data_name RP
 ```
