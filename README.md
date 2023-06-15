@@ -96,6 +96,9 @@ python render/render.py --data_path {data_folder} --data_name THuman2 --smpl_mod
 ```
 ### Render Dataset (Keypoint)
 * Unzip 3D keypoints of RenderPeople and THuman2.0 dataset `Joint3D.zip` under `{data_folder}/Joint3D`
+```bash
+unzip {data_folder}/Joint3D.zip -d {data_folder}/Joint3D/
+```
 <!-- * Download 3D keypoints of RenderPeople and THuman2.0 dataset to `{data_folder}/Joint3D` from `!!!!!!` -->
 
 * For RenderPeople training dataset, enter the command below to get 2D keypoints.
