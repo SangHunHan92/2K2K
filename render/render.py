@@ -27,14 +27,13 @@ parser.add_argument('--data_path', type=str,         default='/workspace/dataset
 
 parser.add_argument('--data_name', type=str,         default='2K2K', help='folder name of rendered dataset')
 parser.add_argument('--smpl_model_path', type=none_or_str,   default='None', help='path to smplx model')
-parser.add_argument('--render_ORTH', type=bool, default=False, help='render orthgonal images')
 parser.add_argument('--file', type=str, default='ply', help='obj or ply')
+parser.add_argument('--render_ORTH', type=bool, default=False, help='render orthgonal images')
 
 # parser.add_argument('--data_name', type=str,         default='RP', help='folder name of rendered dataset')
 # parser.add_argument('--smpl_model_path', type=none_or_str,   default='None', help='path to smplx model')
 # parser.add_argument('--file', type=str, default='obj', help='only obj for RP')
 # parser.add_argument('--render_ORTH', type=bool, default=False, help='render orthgonal images')
-
 
 # parser.add_argument('--data_name', type=str,         default='THuman2', help='folder name of rendered dataset')
 # parser.add_argument('--smpl_model_path', type=str,   default='/workspace/code_github/render/smpl_related/models', help='path to smplx model')
@@ -73,7 +72,7 @@ def make_train_list(data_path, data_name, angle_min_x, angle_max_x, interval_x, 
 
 def render_mesh(data_path, # '/workspace/code_github/data/'
                 data_name, # 'RP', 'THuman2'
-                f='ply',
+                f='obj',
                 cnt=0,
                 fov=50,
                 cam_res=2048,
