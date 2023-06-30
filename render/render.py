@@ -10,6 +10,7 @@ import cv2
 import torch
 from scipy.spatial.transform import Rotation as R_
 import argparse
+import trimesh
 
 os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"]="0"
@@ -24,11 +25,20 @@ parser = argparse.ArgumentParser()
 # parser.add_argument('--data_path', type=str,         default='/workspace/code_github/data/',  help='path to mesh data')
 parser.add_argument('--data_path', type=str,         default='/workspace/dataset/data/',  help='path to mesh data')
 
-parser.add_argument('--data_name', type=str,         default='RP', help='folder name of rendered dataset')
+parser.add_argument('--data_name', type=str,         default='2K2K', help='folder name of rendered dataset')
 parser.add_argument('--smpl_model_path', type=none_or_str,   default='None', help='path to smplx model')
 parser.add_argument('--render_ORTH', type=bool, default=False, help='render orthgonal images')
+parser.add_argument('--file', type=str, default='ply', help='obj or ply')
+
+# parser.add_argument('--data_name', type=str,         default='RP', help='folder name of rendered dataset')
+# parser.add_argument('--smpl_model_path', type=none_or_str,   default='None', help='path to smplx model')
+# parser.add_argument('--file', type=str, default='obj', help='only obj for RP')
+# parser.add_argument('--render_ORTH', type=bool, default=False, help='render orthgonal images')
+
+
 # parser.add_argument('--data_name', type=str,         default='THuman2', help='folder name of rendered dataset')
 # parser.add_argument('--smpl_model_path', type=str,   default='/workspace/code_github/render/smpl_related/models', help='path to smplx model')
+# parser.add_argument('--file', type=str, default='obj', help='only obj for THuman2')
 # parser.add_argument('--render_ORTH', type=bool, default=False, help='render orthgonal images')
 args = parser.parse_args()
 
@@ -52,8 +62,10 @@ def make_train_list(data_path, data_name, angle_min_x, angle_max_x, interval_x, 
         for d in data: # ['rp_aaron_posed_013_OBJ']    
             if data_name=="RP":
                 item_name = d[:-4] # 'rp_aaron_posed_013'
-            elif data_name=="THuman2":
+            elif data_name=="THuman2" or data_name=="2K2K":
                 item_name = d
+            else:
+                raise Exception("Only for RenderPeople, THuman2, and 2K2K dataset.")
             for name_degree in list_name_degree: # ['RP_0_y_-30_x', 'RP_0_y_-20_x', 'RP_0_y_-10_x', 'RP_0_y_0_x', 'RP_0_y_10_x', 'RP_0_y_20_x', 'RP_0_y_30_x']
                 line = '/PERS/COLOR/SHADED/{0}/{1}_front.png /PERS/COLOR/NOSHADING/{0}/{1}_front.png /PERS/DEPTH/{0}/{1}_front.png\n'.format(name_degree, item_name)
                 f.write(line)
@@ -61,7 +73,7 @@ def make_train_list(data_path, data_name, angle_min_x, angle_max_x, interval_x, 
 
 def render_mesh(data_path, # '/workspace/code_github/data/'
                 data_name, # 'RP', 'THuman2'
-                f=None,
+                f='ply',
                 cnt=0,
                 fov=50,
                 cam_res=2048,
@@ -170,6 +182,23 @@ def render_mesh(data_path, # '/workspace/code_github/data/'
                 print('ERROR: obj file does not exist!!', obj_path)
                 return
             glob_rotation = np.array([0., 0., 0.], dtype=np.float32)
+            
+        elif data_name=="2K2K":
+            item_name = d
+            if f=="obj":
+                obj_path = os.path.join(data_path, 'obj', data_name, d, d+'.obj')
+                tex_path = os.path.join(data_path, 'obj', data_name, d, d+'.png')
+                mesh = load_obj_mesh(obj_path, tex_path)
+                if not os.path.exists(obj_path):
+                    print('ERROR: obj file does not exist!!', obj_path)
+                    return
+            elif f=="ply":
+                ply_path = os.path.join(data_path, 'obj', data_name, d, d+'.ply')
+                mesh = trimesh.load(ply_path)
+                if not os.path.exists(ply_path):
+                    print('ERROR: ply file does not exist!!', ply_path)
+                    return
+            glob_rotation = np.array([0., 0., 0.], dtype=np.float32)
 
         elif data_name=="THuman2":
             item_name = d
@@ -239,6 +268,7 @@ def render_mesh(data_path, # '/workspace/code_github/data/'
             val = np.maximum(np.max(vertices_np), np.abs(np.min(vertices_np)))
             vertices /= val * 2.8
             
+            # For RenderPeople Dataset
             turn_right =  size =  0
             if d in [
                 'rp_wendy_posed_002_OBJ',
@@ -329,7 +359,7 @@ def render_mesh(data_path, # '/workspace/code_github/data/'
 
 
 if __name__ == '__main__':
-    f = 'obj'
+    
     folders = sorted(os.listdir(args.data_path))
 
     # folder_num = 0
@@ -349,11 +379,11 @@ if __name__ == '__main__':
 
     render_mesh(args.data_path, 
                 args.data_name,
-                f=f,
+                f=args.file,
                 cnt=cnt_y,
                 fov=50,
-                # cam_res=2048,
-                cam_res=256,
+                cam_res=2048,
+                # cam_res=256,
                 angle_min_x=-30,
                 angle_max_x=30,
                 interval_x=10,
