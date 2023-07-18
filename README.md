@@ -139,8 +139,7 @@ python -m torch.distributed.run \
 bin\OpenPoseDemo.exe --image_dir {test_folder} --write_json {test_folder} --hand --write_images {test_folder}\test --write_images_format jpg
 ```
 
-* <del>Download the checkpoint file for quick results.</del> 
-* Temporarily remove checkpoints due to licensing issue.
+* Download the checkpoint file for quick results.
 ```bash
 cd checkpoints && wget https://github.com/SangHunHan92/2K2K/releases/download/Checkpoint/ckpt_bg_mask.pth.tar && cd ..
 ```
