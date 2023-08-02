@@ -151,7 +151,7 @@ python test_02_model.py --load_ckpt {checkpoint_file_name} --save_path {result_s
 
 * To run the Poisson surface reconstruction, run the code below. Depending on your CPU performance, it will take between 1 and 10 minutes per object.
 ```bash
-python test_03_model.py --save_path {result_save_folder}
+python test_03_poisson.py --save_path {result_save_folder}
 ```
 
 ## 2K2K Dataset
