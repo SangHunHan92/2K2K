@@ -43,12 +43,13 @@ def main(save_path, proj_name):
         m  = mss.mesh(1)
         v  = m.vertex_matrix()
         vn = m.vertex_normal_matrix()
+        vc = m.vertex_color_matrix()
         f  = m.face_matrix()        
         x_min, y_min, z_min = np.argmin(v, axis=0)
         x_max, y_max, z_max = np.argmax(v, axis=0)
         if sum([vn[x_min][0]>0, vn[y_min][1]>0, vn[z_min][2]>0, vn[x_max][0]<0, vn[y_max][1]<0, vn[z_max][2]<0]) > 3:
             vn *= -1.
-        ex_mesh = trimesh.Trimesh(vertices=v, faces=f, vertex_normals=vn)
+        ex_mesh = trimesh.Trimesh(vertices=v, faces=f, vertex_normals=vn, vertex_colors=vc)
         save_path = os.path.join(obj_path, name+'.obj')
         ex_mesh.export(save_path)
 
