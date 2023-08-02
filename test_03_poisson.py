@@ -13,12 +13,12 @@ parser.add_argument('--save_path', type=str, default='./result', help='path to s
 parser.add_argument('--save_name', type=str, default='test', help='path to save folder')
 args = parser.parse_args()
 
-def main(save_path, proj_name):
+def main(save_path, save_name):
 
-    pc_path = os.path.join(save_path, proj_name, 'output_plys')
-    obj_path = os.path.join(save_path, proj_name, 'output_objs')
-    # pc_path = os.path.join(save_path, proj_name, 'output_plys_c')
-    # obj_path = os.path.join(save_path, proj_name, 'output_objs_c')
+    pc_path = os.path.join(save_path, save_name, 'output_plys')
+    obj_path = os.path.join(save_path, save_name, 'output_objs')
+    # pc_path = os.path.join(save_path, save_name, 'output_plys_c')
+    # obj_path = os.path.join(save_path, save_name, 'output_objs_c')
     os.makedirs(obj_path, exist_ok=True)
     os.chmod(obj_path, 0o777)
 
@@ -54,5 +54,5 @@ def main(save_path, proj_name):
         ex_mesh.export(save_path)
 
 if __name__ == '__main__':    
-    main(args.save_path, args.proj_name)
+    main(args.save_path, args.save_name)
     
