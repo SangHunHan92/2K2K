@@ -10,7 +10,7 @@ import cv2
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--save_path', type=str, default='./result', help='path to save folder')
-parser.add_argument('--proj_name', type=str, default='test3', help='path to save folder')
+parser.add_argument('--save_name', type=str, default='test', help='path to save folder')
 args = parser.parse_args()
 
 def main(save_path, proj_name):
