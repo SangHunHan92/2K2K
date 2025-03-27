@@ -12,7 +12,7 @@ Young-Jae Park, and
 
 <a href="https://arxiv.org/abs/2303.15108">Paper</a> | 
 <a href="https://sanghunhan92.github.io/conference/2K2K/">Project Page</a> | 
-<a href="https://github.com/ketiVision/2K2K">Dataset</a>
+<a href="https://huggingface.co/datasets/polygom-team/2K2K">Dataset</a>
 
 <!-- [![report](https://img.shields.io/badge/arxiv-report-red)](https://arxiv.org/abs/2303.15108) -->
 
@@ -156,7 +156,8 @@ python test_03_poisson.py --save_path {result_save_folder}
 
 ## 2K2K Dataset
 * Consisting of 2,050 3D human models from 80 DSLR cameras.
-* Due to watermarking, the dataset will be released on June 16th.
+* The SMPL-X mesh and parameters can be downloaded from the <a href="https://huggingface.co/datasets/polygom-team/2K2K">link</a>.
+
 
 ## Citation
 ```bash
