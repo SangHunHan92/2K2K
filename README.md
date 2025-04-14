@@ -31,6 +31,12 @@ Young-Jae Park, and
 * Part-wise Normal Prediction divides an image into each body part through a matrix using keypoints. <br> This helps in predicting detailed normal vectors for each body part with minimal computation.
 * Coarse-to-Fine Depth Prediction predicts a high-resolution depth map with very few network parameters and minimal memory usage.
 
+
+## 2K2K Dataset
+* Consisting of 2,050 3D human models from 80 DSLR cameras.
+* The SMPL-X mesh and parameters can be downloaded from the <a href="https://huggingface.co/datasets/polygom-team/2K2K">link</a>.
+* For questions about the dataset, please email [ jseob.y@polygom.xyz ] or leave an issue on huggingface.
+
 ## Installation
 ### Environment
 * All models and codes work on Ubuntu 20.04 with Python 3.8, PyTorch 1.9.1 and CUDA 11.1.
@@ -153,10 +159,6 @@ python test_02_model.py --load_ckpt {checkpoint_file_name} --save_path {result_s
 ```bash
 python test_03_poisson.py --save_path {result_save_folder}
 ```
-
-## 2K2K Dataset
-* Consisting of 2,050 3D human models from 80 DSLR cameras.
-* The SMPL-X mesh and parameters can be downloaded from the <a href="https://huggingface.co/datasets/polygom-team/2K2K">link</a>.
 
 
 ## Citation
