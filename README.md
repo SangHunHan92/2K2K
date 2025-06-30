@@ -1,11 +1,11 @@
 # High-fidelity 3D Human Digitization from Single 2K Resolution Images (2K2K)
 This repository contains the code of the 2K2K method for 3D human reconstruction.
 
-Sang-Hun Han, 
-Min-Gyu Park, 
-Ju Hong Yoon, 
+<a href="https://scholar.google.com/citations?hl=en&user=SmDm3HoAAAAJ">Sang-Hun Han</a>, 
+<a href="https://scholar.google.com/citations?user=VUj1ZWoAAAAJ">Min-Gyu Park</a>, 
+<a href="https://scholar.google.com/citations?user=Y4mReV4AAAAJ">Ju Hong Yoon</a>, 
 Ju-Mi Kang, 
-Young-Jae Park, and 
+<a href="https://scholar.google.com/citations?user=eaT9X2MAAAAJ">Young-Jae Park</a>, and 
 <a href="https://scholar.google.com/citations?user=Ei00xroAAAAJ">Hae-Gon Jeon</a>
 <br>Accepted to 
 <a href="https://cvpr2023.thecvf.com/">CVPR 2023</a>
