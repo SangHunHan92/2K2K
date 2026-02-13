@@ -2,7 +2,7 @@ opencv-python==4.5.5.64
 matplotlib
 scipy
 pytorch-msssim
-trimesh
+trimesh[easy]
 scikit-image
 scikit-learn
 munch
