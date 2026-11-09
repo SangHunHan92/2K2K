@@ -12,7 +12,7 @@ Ju-Mi Kang,
 
 <a href="https://arxiv.org/abs/2303.15108">Paper</a> | 
 <a href="https://sanghunhan92.github.io/conference/2K2K/">Project Page</a> | 
-<a href="https://huggingface.co/datasets/polygom-team/2K2K">Dataset</a>
+<a href="https://huggingface.co/datasets/POLYGOM-STUDIO/2K2K">Dataset</a>
 
 <!-- [![report](https://img.shields.io/badge/arxiv-report-red)](https://arxiv.org/abs/2303.15108) -->
 
@@ -34,8 +34,8 @@ Ju-Mi Kang,
 
 ## 2K2K Dataset
 * Consisting of 2,050 3D human models from 80 DSLR cameras.
-* The SMPL-X mesh and parameters can be downloaded from the <a href="https://huggingface.co/datasets/polygom-team/2K2K">link</a>.
-* For questions about the dataset, please email [ jseob.y@polygom.xyz ] or leave an issue on huggingface.
+* The SMPL-X mesh and parameters can be downloaded from the <a href="https://huggingface.co/datasets/POLYGOM-STUDIO/2K2K">link</a>. (Link updated: 2026-11-09)
+* For questions about the dataset, please email [ yhkwon@keti.re.kr ] or leave an issue on huggingface.
 
 ## Installation
 ### Environment
